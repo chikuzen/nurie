@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>塗り絵メーカー</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+  <div class='wrapper'>
+    <div class="canvas" data-str='元画像'>
+      <canvas id='src'></canvas>
+    </div>
+    <p>画像をアップロード</p>
+    <input type='file' class='file' accept='image/png, image/jpeg, image/gif, image/webp'>
+  </div>
+  <div class='wrapper'>
+    <div class="canvas" data-str='塗り絵'>
+      <canvas id='dst'></canvas>
+    </div>
+    <button class='dl' type='button'>塗り絵をダウンロード</button>
+
+  </div>
+</div>
+
+
+<script src='js/script.js'></script>
+
+</body>
+</html>

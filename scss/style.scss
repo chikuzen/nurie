@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+
+#src, #dst {
+    width: 480px;
+    display: block;
+    border: 1px solid rgba(#000, 0.5);
+}
+
+.container {
+    display: flex;
+}
+
+.wrapper {
+    padding: 10px;
+}
+
+.canvas {
+    background: #eee;
+    &::before {
+        content: attr(data-str)"";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        font-weight: bold;
+        font-family: sans-serif;
+        color: #aaa;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.dl {
+    margin-top: 20px;
+    display: none;
+    &.show {
+        display: inline-block;
+    }
+}
+
