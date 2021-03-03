@@ -82,17 +82,13 @@ function drawArray(ctx, src, arr) {
     ctx.putImageData(src, 0, 0, 0, 0, src.width, src.height);
 }
 
-function proc(imgpath) {
-    const src = document.getElementById('src');
-    const dst = document.getElementById('dst');
-    const sctx = src.getContext('2d');
-    const dctx = dst.getContext('2d');
+function proc(sc, sctx, dc, dctx,imgpath) {
     const img = new Image();
     img.onload = function(){
         const w = img.naturalWidth;
         const h = img.naturalHeight;
-        src.width = dst.width = w;
-        src.height = dst.height = h;
+        sc.width = dc.width = w;
+        sc.height = dc.height = h;
         sctx.drawImage(img, 0, 0);
         const data = sctx.getImageData(0, 0, w, h);
         const gs = getGrayScale(data.data, w, h);
@@ -104,21 +100,25 @@ function proc(imgpath) {
 }
 
 (function(d){
+    const sc = document.getElementById('src');
+    const dc = document.getElementById('dst');
+    const sctx = sc.getContext('2d');
+    const dctx = dc.getContext('2d');
     const file = d.querySelector('.file');
     const dl = d.querySelector('.dl');
-    file.addEventListener('change', function(){
+    file.onchange = function(){
         if (this.files.length === 0) return;
         const r = new FileReader();
         r.onload = function(e) {
-            proc(e.target.result);
+            proc(sc, sctx, dc, dctx, e.target.result);
             dl.classList.add('show');
         }
         r.readAsDataURL(this.files[0]);
-    });
-    dl.addEventListener('click', function(){
+    };
+    dl.onclick = function(){
         const a = d.createElement('a');
         a.href = d.getElementById('dst').toDataURL('image/png');
         a.download = 'nurie.png';
         a.click();
-    });
+    };
 })(document);

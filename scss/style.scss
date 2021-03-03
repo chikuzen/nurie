@@ -19,6 +19,7 @@
 
 .canvas {
     background: #eee;
+    margin-bottom: 10px;
     &::before {
         content: attr(data-str)"";
         display: flex;
@@ -37,7 +38,6 @@
 }
 
 .dl {
-    margin-top: 20px;
     display: none;
     &.show {
         display: inline-block;

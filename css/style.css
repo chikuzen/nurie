@@ -19,6 +19,7 @@
 
 .canvas {
   background: #eee;
+  margin-bottom: 10px;
 }
 
 .canvas::before {
@@ -38,7 +39,6 @@
 }
 
 .dl {
-  margin-top: 20px;
   display: none;
 }
 
